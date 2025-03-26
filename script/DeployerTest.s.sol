@@ -14,7 +14,7 @@ contract DeployTestUpgradable is Script {
         console.log("TestUpgradable implementation deployed at:", address(implementation));
 
         // Encode the initializer call with both parameters: initial value and owner.
-        bytes memory initData = abi.encodeWithSignature("initialize(uint256,address)", 42, msg.sender);
+        bytes memory initData = abi.encodeWithSignature("initialize(uint256,address)", uint256(42), msg.sender);
 
         // Deploy the proxy, passing the implementation address and initializer data.
         TestUpgradableProxy proxy = new TestUpgradableProxy(address(implementation), initData);
